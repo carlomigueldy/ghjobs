@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'GitHub Jobs' || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +18,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: 'blue', throttle: 0, duration: 5000, },
   /*
   ** Global CSS
   */
@@ -33,6 +33,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
   ],
   /*
   ** Nuxt.js modules
@@ -57,5 +58,16 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+
+  transition: {
+    name: 'fade',
+    mode: 'in-out'
+  },
+
+  env: {
+    title: 'GitHub Jobs',
+    description: 'An app to search for jobs for Software Developers using GitHub Jobs API',
+    baseUrl: 'https://cors-anywhere.herokuapp.com/https://jobs.github.com',
   }
 }
